@@ -28,6 +28,7 @@ import (
 
 // Config defines the config model
 type Config struct {
+	Tag           string            `json:"tag" yaml:"tag"`
 	Scopes        []string          `json:"scopes" yaml:"scopes"`
 	Protoc        string            `json:"protoc" yaml:"protoc"`
 	ProtocWorkDir string            `json:"protocWorkDir" yaml:"protocWorkDir"`

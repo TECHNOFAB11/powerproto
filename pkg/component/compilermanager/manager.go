@@ -26,7 +26,7 @@ import (
 // CompilerManager is to manage compiler
 type CompilerManager interface {
 	// GetCompiler is used to get compiler of specified proto file path
-	GetCompiler(ctx context.Context, protoFilePath string) (Compiler, error)
+	GetCompiler(ctx context.Context, protoFilePath string, tags []string) (Compiler, error)
 }
 
 // BasicCompilerManager is the basic implement of CompilerManager
@@ -66,8 +66,8 @@ func NewBasicCompilerManager(ctx context.Context,
 }
 
 // GetCompiler is used to get compiler of specified proto file path
-func (b *BasicCompilerManager) GetCompiler(ctx context.Context, protoFilePath string) (Compiler, error) {
-	config, err := b.configManager.GetConfig(ctx, protoFilePath)
+func (b *BasicCompilerManager) GetCompiler(ctx context.Context, protoFilePath string, tags []string) (Compiler, error) {
+	config, err := b.configManager.GetConfig(ctx, protoFilePath, tags)
 	if err != nil {
 		return nil, err
 	}

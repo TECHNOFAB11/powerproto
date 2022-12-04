@@ -33,17 +33,13 @@ import (
 )
 
 // StepLookUpConfigs is used to lookup config files according to target proto files
-func StepLookUpConfigs(
-	ctx context.Context,
-	targets []string,
-	configManager configmanager.ConfigManager,
-) ([]configs.ConfigItem, error) {
+func StepLookUpConfigs(ctx context.Context, targets []string, tags []string, configManager configmanager.ConfigManager) ([]configs.ConfigItem, error) {
 	progress := progressbar.GetProgressBar(ctx, len(targets))
 	progress.SetPrefix("Lookup configs of proto files")
 	var configItems []configs.ConfigItem
 	deduplicate := map[string]struct{}{}
 	for _, target := range targets {
-		cfg, err := configManager.GetConfig(ctx, target)
+		cfg, err := configManager.GetConfig(ctx, target, tags)
 		if err != nil {
 			return nil, err
 		}
@@ -233,6 +229,7 @@ func StepInstallPlugins(ctx context.Context,
 func StepCompile(ctx context.Context,
 	compilerManager compilermanager.CompilerManager,
 	targets []string,
+	tags []string,
 ) error {
 	progress := progressbar.GetProgressBar(ctx, len(targets))
 	progress.SetPrefix("Compile Proto Files")
@@ -241,7 +238,7 @@ func StepCompile(ctx context.Context,
 		func(target string) {
 			c.Go(func(ctx context.Context) error {
 				progress.SetSuffix(target)
-				comp, err := compilerManager.GetCompiler(ctx, target)
+				comp, err := compilerManager.GetCompiler(ctx, target, tags)
 				if err != nil {
 					return err
 				}
@@ -295,7 +292,7 @@ func StepPostShell(ctx context.Context,
 }
 
 // Compile is used to compile proto files
-func Compile(ctx context.Context, targets []string) error {
+func Compile(ctx context.Context, targets []string, tags []string) error {
 	log := logger.NewDefault("compile")
 	log.SetLogLevel(logger.LevelInfo)
 	if consts.IsDebugMode(ctx) {
@@ -319,7 +316,7 @@ func Compile(ctx context.Context, targets []string) error {
 		return err
 	}
 
-	configItems, err := StepLookUpConfigs(ctx, targets, configManager)
+	configItems, err := StepLookUpConfigs(ctx, targets, tags, configManager)
 	if err != nil {
 		return err
 	}
@@ -333,7 +330,7 @@ func Compile(ctx context.Context, targets []string) error {
 	if err := StepInstallPlugins(ctx, pluginManager, configItems); err != nil {
 		return err
 	}
-	if err := StepCompile(ctx, compilerManager, targets); err != nil {
+	if err := StepCompile(ctx, compilerManager, targets, tags); err != nil {
 		return err
 	}
 

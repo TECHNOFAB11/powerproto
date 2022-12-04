@@ -30,7 +30,7 @@ import (
 // ConfigManager is used to manage config
 type ConfigManager interface {
 	// GetCompiler is used to get config of specified proto file path
-	GetConfig(ctx context.Context, protoFilePath string) (configs.ConfigItem, error)
+	GetConfig(ctx context.Context, protoFilePath string, tags []string) (configs.ConfigItem, error)
 }
 
 // NewConfigManager is used to create ConfigManager
@@ -55,7 +55,7 @@ func NewBasicConfigManager(log logger.Logger) (*BasicConfigManager, error) {
 }
 
 // GetConfig is used to get config of specified proto file path
-func (b *BasicConfigManager) GetConfig(ctx context.Context, protoFilePath string) (configs.ConfigItem, error) {
+func (b *BasicConfigManager) GetConfig(ctx context.Context, protoFilePath string, tags []string) (configs.ConfigItem, error) {
 	possiblePath := configs.ListConfigPaths(filepath.Dir(protoFilePath))
 	for _, configFilePath := range possiblePath {
 		items, err := b.loadConfig(configFilePath)
@@ -67,7 +67,15 @@ func (b *BasicConfigManager) GetConfig(ctx context.Context, protoFilePath string
 			for _, scope := range config.Config().Scopes {
 				scopePath := filepath.Join(dir, scope)
 				if strings.Contains(protoFilePath, scopePath) {
-					return config, nil
+					if len(tags) == 0 {
+						return config, nil
+					}
+					b.Logger.LogInfo(nil, "tags %s passed, filtering...", tags)
+					for _, tag := range tags {
+						if strings.Contains(tag, config.Config().Tag) {
+							return config, nil
+						}
+					}
 				}
 			}
 		}

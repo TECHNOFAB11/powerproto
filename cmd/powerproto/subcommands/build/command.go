@@ -52,6 +52,7 @@ func CommandBuild(log logger.Logger) *cobra.Command {
 	var dryRun bool
 	var debugMode bool
 	var postScriptEnabled bool
+	var tags []string
 	perCommandTimeout := time.Second * 300
 	cmd := &cobra.Command{
 		Use:   "build [dir|proto file]",
@@ -108,12 +109,12 @@ func CommandBuild(log logger.Logger) *cobra.Command {
 				log.LogWarn(nil, "no file to compile")
 				return
 			}
-			if err := bootstraps.StepTidyConfig(ctx, targets); err != nil {
+			if err := bootstraps.StepTidyConfig(ctx, targets, tags); err != nil {
 				log.LogFatal(nil, "failed to tidy config: %+v", err)
 				return
 			}
 
-			if err := bootstraps.Compile(ctx, targets); err != nil {
+			if err := bootstraps.Compile(ctx, targets, tags); err != nil {
 				log.LogFatal(nil, "failed to compile: %+v", err)
 			}
 
@@ -126,5 +127,6 @@ func CommandBuild(log logger.Logger) *cobra.Command {
 	flags.BoolVarP(&debugMode, "debug", "d", debugMode, "debug mode")
 	flags.BoolVarP(&dryRun, "dryRun", "y", dryRun, "dryRun mode")
 	flags.DurationVarP(&perCommandTimeout, "timeout", "t", perCommandTimeout, "execution timeout for per command")
+	flags.StringSliceVar(&tags, "tags", tags, "filter configs by tag")
 	return cmd
 }

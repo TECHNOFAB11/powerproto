@@ -29,7 +29,7 @@ import (
 )
 
 // StepTidyConfig is used to tidy configs by proto file targets
-func StepTidyConfig(ctx context.Context, targets []string) error {
+func StepTidyConfig(ctx context.Context, targets []string, tags []string) error {
 	log := logger.NewDefault("tidy")
 	log.SetLogLevel(logger.LevelInfo)
 	if consts.IsDebugMode(ctx) {
@@ -47,7 +47,7 @@ func StepTidyConfig(ctx context.Context, targets []string) error {
 
 	configPaths := map[string]struct{}{}
 	for _, target := range targets {
-		cfg, err := configManager.GetConfig(ctx, target)
+		cfg, err := configManager.GetConfig(ctx, target, tags)
 		if err != nil {
 			return err
 		}
