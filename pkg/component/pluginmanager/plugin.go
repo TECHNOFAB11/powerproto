@@ -23,9 +23,9 @@ import (
 	"github.com/hashicorp/go-multierror"
 	jsoniter "github.com/json-iterator/go"
 
-	"github.com/storyicon/powerproto/pkg/util"
-	"github.com/storyicon/powerproto/pkg/util/command"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/util"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/command"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // IsPluginInstalled is used to check whether a plugin is installed

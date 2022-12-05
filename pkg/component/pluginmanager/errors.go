@@ -17,7 +17,7 @@ package pluginmanager
 import (
 	"fmt"
 
-	"github.com/storyicon/powerproto/pkg/util/command"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/command"
 )
 
 // ErrGoInstall defines the go install error

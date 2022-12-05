@@ -21,14 +21,15 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/storyicon/powerproto/pkg/consts"
-	"github.com/storyicon/powerproto/pkg/util"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/consts"
+	"github.com/TECHNOFAB11/powerproto/pkg/util"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // ActionMove is used to move directory or file from src to dest
 // Its args prototype is:
-// 		args: (src string, dest string)
+//
+//	args: (src string, dest string)
 func ActionMove(ctx context.Context, log logger.Logger, args []string, options *CommonOptions) error {
 	if len(args) != 2 || util.ContainsEmpty(args...) {
 		return errors.Errorf("expected length of args is 3, but received %d", len(args))

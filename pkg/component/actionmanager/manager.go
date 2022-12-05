@@ -19,10 +19,10 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/storyicon/powerproto/pkg/component/actionmanager/actions"
-	"github.com/storyicon/powerproto/pkg/configs"
-	"github.com/storyicon/powerproto/pkg/util/command"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/component/actionmanager/actions"
+	"github.com/TECHNOFAB11/powerproto/pkg/configs"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/command"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // ActionManager is used to manage actions

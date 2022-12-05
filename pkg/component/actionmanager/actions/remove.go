@@ -21,13 +21,14 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/storyicon/powerproto/pkg/consts"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/consts"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // ActionRemove is used to delete directories or files
 // Its args prototype is:
-// 		args: (path ...string)
+//
+//	args: (path ...string)
 func ActionRemove(ctx context.Context, log logger.Logger, args []string, options *CommonOptions) error {
 	for _, arg := range args {
 		if filepath.IsAbs(arg) {

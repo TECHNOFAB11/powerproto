@@ -17,7 +17,7 @@ package actions
 import (
 	"context"
 
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // CommonOptions is common options of action

@@ -22,10 +22,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/storyicon/powerproto/pkg/bootstraps"
-	"github.com/storyicon/powerproto/pkg/consts"
-	"github.com/storyicon/powerproto/pkg/util"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/bootstraps"
+	"github.com/TECHNOFAB11/powerproto/pkg/consts"
+	"github.com/TECHNOFAB11/powerproto/pkg/util"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 const description = `

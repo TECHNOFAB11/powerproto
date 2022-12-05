@@ -1,4 +1,4 @@
-module github.com/storyicon/powerproto
+module github.com/TECHNOFAB11/powerproto
 
 go 1.16
 

@@ -22,8 +22,8 @@ import (
 	"github.com/vbauerster/mpb/v7"
 	"github.com/vbauerster/mpb/v7/decor"
 
-	"github.com/storyicon/powerproto/pkg/consts"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/consts"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // ProgressBar implements a customizable progress bar

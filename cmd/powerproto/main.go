@@ -19,11 +19,11 @@ import (
 
 	"github.com/spf13/cobra"
 
-	cmdbuild "github.com/storyicon/powerproto/cmd/powerproto/subcommands/build"
-	cmdenv "github.com/storyicon/powerproto/cmd/powerproto/subcommands/env"
-	cmdinit "github.com/storyicon/powerproto/cmd/powerproto/subcommands/init"
-	cmdtidy "github.com/storyicon/powerproto/cmd/powerproto/subcommands/tidy"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	cmdbuild "github.com/TECHNOFAB11/powerproto/cmd/powerproto/subcommands/build"
+	cmdenv "github.com/TECHNOFAB11/powerproto/cmd/powerproto/subcommands/env"
+	cmdinit "github.com/TECHNOFAB11/powerproto/cmd/powerproto/subcommands/init"
+	cmdtidy "github.com/TECHNOFAB11/powerproto/cmd/powerproto/subcommands/tidy"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // Version is set via build flag -ldflags -X main.Version

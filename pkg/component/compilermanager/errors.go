@@ -15,7 +15,7 @@
 package compilermanager
 
 import (
-	"github.com/storyicon/powerproto/pkg/util/command"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/command"
 )
 
 // ErrCompile defines the compile error

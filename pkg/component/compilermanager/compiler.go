@@ -21,12 +21,12 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/storyicon/powerproto/pkg/component/pluginmanager"
-	"github.com/storyicon/powerproto/pkg/configs"
-	"github.com/storyicon/powerproto/pkg/consts"
-	"github.com/storyicon/powerproto/pkg/util"
-	"github.com/storyicon/powerproto/pkg/util/command"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/component/pluginmanager"
+	"github.com/TECHNOFAB11/powerproto/pkg/configs"
+	"github.com/TECHNOFAB11/powerproto/pkg/consts"
+	"github.com/TECHNOFAB11/powerproto/pkg/util"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/command"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // Compiler is used to compile proto file
@@ -99,7 +99,7 @@ func (b *BasicCompiler) GetConfig(ctx context.Context) configs.ConfigItem {
 }
 
 func (b *BasicCompiler) calcProtocPath(ctx context.Context) (string, error) {
-	return  b.pluginManager.GetPathForProtoc(ctx, b.config.Config().Protoc)
+	return b.pluginManager.GetPathForProtoc(ctx, b.config.Config().Protoc)
 }
 
 func (b *BasicCompiler) calcDir() string {

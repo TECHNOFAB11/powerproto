@@ -28,7 +28,7 @@ import (
 	"github.com/mholt/archiver"
 	"github.com/pkg/errors"
 
-	"github.com/storyicon/powerproto/pkg/util"
+	"github.com/TECHNOFAB11/powerproto/pkg/util"
 )
 
 // ProtocRelease defines the release of protoc

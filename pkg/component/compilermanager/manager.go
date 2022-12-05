@@ -18,9 +18,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/storyicon/powerproto/pkg/component/configmanager"
-	"github.com/storyicon/powerproto/pkg/component/pluginmanager"
-	"github.com/storyicon/powerproto/pkg/util/logger"
+	"github.com/TECHNOFAB11/powerproto/pkg/component/configmanager"
+	"github.com/TECHNOFAB11/powerproto/pkg/component/pluginmanager"
+	"github.com/TECHNOFAB11/powerproto/pkg/util/logger"
 )
 
 // CompilerManager is to manage compiler
